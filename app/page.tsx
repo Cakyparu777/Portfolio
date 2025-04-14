@@ -1,4 +1,5 @@
 // Project: Portfolio Website
+'use client'
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Code, Github, Linkedin, Mail, User, Languages, Globe } from "lucide-react"
@@ -11,16 +12,20 @@ import { AnimatedText } from "@/components/animated-text"
 import { AnimatedSection } from "@/components/animated-section"
 import { ContactForm } from "@/components/contact-form"
 import { ExperienceTimeline } from "@/components/experience-timeline"
+import { useTheme } from "next-themes"
 
 export default function Home() {
-  return (
+  const { theme } = useTheme() // Move the hook inside the component
+  console.log(theme) // Logs "light" or "dark"
+
+return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <Code className="h-6 w-6" />
-              <span className="font-bold inline-block">DevPortfolio</span>
+              <span className="font-bold inline-block">Home</span>
             </Link>
             <nav className="hidden gap-6 md:flex">
               <Link
@@ -85,19 +90,19 @@ export default function Home() {
           <div className="container flex flex-col items-center justify-center text-center">
             <AnimatedText
               text="Fullstack Engineer"
-              className="text-xl font-medium text-muted-foreground mb-4"
+              className={`text-xl font-medium tracking-tight mb-4`}
               direction="up"
               delay={0.2}
             />
             <AnimatedText
               text="Building Digital Experiences"
-              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-6"
+              className="text-4xl font-bold  sm:text-5xl md:text-6xl lg:text-7xl mb-6"
               direction="up"
               delay={0.3}
             />
             <AnimatedText
               text="Transforming ideas into elegant, functional solutions"
-              className="max-w-[700px] text-lg text-muted-foreground mb-8"
+              className={`text-xl font-medium tracking-tight mb-4`}
               direction="up"
               delay={0.4}
             />
