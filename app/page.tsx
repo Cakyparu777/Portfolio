@@ -1,8 +1,14 @@
-// Project: Portfolio Website
 'use client'
+
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Code, Github, Linkedin, Mail, User, Languages, Globe } from "lucide-react"
+import { ArrowRight, Code, Github, Linkedin, Mail, User, Globe } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import { Button } from "@/components/ui/button"
 import { ProjectCard } from "@/components/project-card"
@@ -13,10 +19,16 @@ import { AnimatedSection } from "@/components/animated-section"
 import { ContactForm } from "@/components/contact-form"
 import { ExperienceTimeline } from "@/components/experience-timeline"
 import { useTheme } from "next-themes"
+import { useTranslation } from "react-i18next"
+import "@/lib/i18n"
 
 export default function Home() {
-  const { theme } = useTheme() // Move the hook inside the component
-  console.log(theme) // Logs "light" or "dark"
+  const { theme } = useTheme()
+  const { t, i18n } = useTranslation()
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng)
+  }
+  
 
 return (
     <div className="flex min-h-screen flex-col">
@@ -25,38 +37,38 @@ return (
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <Code className="h-6 w-6" />
-              <span className="font-bold inline-block">Home</span>
+              <span className="font-bold inline-block">{t("Home")}</span>
             </Link>
             <nav className="hidden gap-6 md:flex">
               <Link
                 href="#about"
                 className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                About
+                {t("About")}
               </Link>
               <Link
                 href="#skills"
                 className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Skills
+                {t("Skills")}
               </Link>
               <Link
                 href="#projects"
                 className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Projects
+                {t("Projects")}
               </Link>
               <Link
                 href="#experience"
                 className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Experience
+                {t("Experience")}
               </Link>
               <Link
                 href="#contact"
                 className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
-                Contact
+                {t("Contact")}
               </Link>
             </nav>
           </div>
@@ -74,14 +86,22 @@ return (
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </Button>
-            <Button variant="outline" size="icon" asChild >
-              {/* <Link href="#" target="_blank" rel="noopener noreferrer"> */}
-              <span>
+            <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon">
                 <Globe className="h-4 w-4" />
                 <span className="sr-only">Languages</span>
-              </span>
-              {/* </Link> */}
-            </Button> 
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => changeLanguage("en")}>
+              English
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => changeLanguage("ja")}>
+              日本語
+            </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           </div>
         </div>
       </header>
@@ -95,13 +115,13 @@ return (
               delay={0.2}
             />
             <AnimatedText
-              text="Building Digital Experiences"
+              text={t("title1")} //""Building Digital Experiences""
               className="text-4xl font-bold  sm:text-5xl md:text-6xl lg:text-7xl mb-6"
               direction="up"
               delay={0.3}
             />
             <AnimatedText
-              text="Transforming ideas into elegant, functional solutions"
+              text={t("subtitle")}//"Transforming ideas into elegant, functional solutions"
               className={`text-xl font-medium tracking-tight mb-4`}
               direction="up"
               delay={0.4}
@@ -112,11 +132,11 @@ return (
             >
               <Button asChild size="lg">
                 <Link href="#projects">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                  {t("projects")} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="#contact">Contact Me</Link>
+                <Link href="#contact">{t("contact")}</Link>
               </Button>
             </div>
           </div>
@@ -129,20 +149,22 @@ return (
           <div className="container">
             <div className="mx-auto grid max-w-[58rem] grid-cols-1 gap-8 md:grid-cols-2">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">About Me</div>
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">{t("about")}</div>
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Driven to Excel as a Versatile Fullstack Engineer
+                  {t("about_title")}{/* Driven to Excel as a Versatile Fullstack Engineer */}
                 </h2>
                 <p className="text-muted-foreground">
-                  I am a dedicated fullstack engineer with over 2 years of experience. 
+                  {t("about_description")}{/* I am a dedicated fullstack engineer with over 2 years of experience.
+                  {/* I am a dedicated fullstack engineer with over 2 years of experience. 
                   My goal is to be the go-to person for any developer in need, providing support and expertise 
-                  across the entire stack.
+                  across the entire stack. */}
                 </p>
                 <p className="text-muted-foreground">
-                With a comprehensive understanding of both frontend and backend technologies, I strive to be 
+                {t("about_description2")}{/* My goal is to be the go-to person for any developer in need, providing support and expertise
+                {/* With a comprehensive understanding of both frontend and backend technologies, I strive to be 
                 the linchpin in any development team, ensuring seamless collaboration and integration. My 
                 commitment to continuous learning and problem-solving makes me an invaluable resource for 
-                tackling complex challenges.
+                tackling complex challenges. */}
                 </p>
                 <div className="flex gap-4">
                   <Button variant="outline" asChild>
@@ -164,6 +186,7 @@ return (
                   alt="Profile"
                   width={350}
                   height={350}
+                  priority
                   className="object-cover"
                   loading="eager"
                 />
@@ -176,9 +199,15 @@ return (
         <AnimatedSection id="skills" className="py-16 md:py-24 bg-muted/50">
           <div className="container">
             <div className="mx-auto max-w-[58rem] space-y-6 text-center">
-              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Skills & Technologies</div>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">My Technical Toolkit</h2>
-              <p className="text-muted-foreground">I've worked with a variety of technologies across the full stack.</p>
+              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                {t("skills")}{/* Skills & Technologies*/}
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                {t("toolkit")} {/*My Technical Toolkit:*/}
+              </h2>
+              <p className="text-muted-foreground">
+                {t("skill_description")} {/*I've worked with a variety of technologies across the full stack.*/}
+              </p>
             </div>
             <div className="mx-auto mt-12 max-w-[64rem]">
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -210,49 +239,58 @@ return (
         <AnimatedSection id="projects" className="py-16 md:py-24">
           <div className="container">
             <div className="mx-auto max-w-[58rem] space-y-6 text-center">
-              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Featured Projects</div>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">My Recent Work</h2>
-              <p className="text-muted-foreground">Here are some of the projects I've worked on recently.</p>
+              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                {/*Featured Projects*/}
+                {t("featured_projects")}
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                {/*My Recent Work*/}
+                {t("recent_work")}
+              </h2>
+              <p className="text-muted-foreground">
+                {/*Here are some of the projects I've worked on recently.:*/}
+                {t("projects_description")}
+              </p>
             </div>
             <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ProjectCard
-                title="MangaAI"
-                description="Using OpenAI models to translate japanese Manga Automatically."
+                title={t("title1")}//"MangaAI"
+                description={t("description1")}//"Using OpenAI models to translate japanese Manga Automatically."
                 tags={["Python", "FastAPI", "OpenAI API", "MySQL, React"]}
                 image="/placeholder.svg?height=200&width=300"
                 link="https://example.com/project1"
               />
               <ProjectCard
-                title="Meeting reporting tool"
-                description="Uses OpenAI models to summarize meeting notes, translates and action items."
+                title={t("title2")}//"Meeting reporting tool"
+                description={t("description2")}//"Uses OpenAI models to summarize meeting notes, translates and action items."
                 tags={["Python", "FastAPI", "OpenAI API", "PostgreSQL, Streamlit, AWS"]}
                 image="/placeholder.svg?height=200&width=300"
                 link="https://example.com/project2"
               />
               <ProjectCard
-                title="Social data visualization platform"
-                description="A web application for visualizing and analyzing social media data using InstagramAPI, TwitterAPI data."
+                title={t("title3")}//"Social data visualization platform"
+                description={t("description3")}//"A web application for visualizing and analyzing social media data using InstagramAPI, TwitterAPI data."
                 tags={["Python", "FastAPI", "PostgreSQL", "React", "Chart.js", 'AWS']}
                 image="/placeholder.svg?height=200&width=300"
                 link="https://example.com/project3"
               />
               <ProjectCard
-                title="3D Simulation Environment"
-                description="An advanced 3D simulation environment for facilities and robotics using Nvidia Isaac Sim."
+                title={t("title4")}//"3D Simulation Environment"
+                description={t("description4")}//"An advanced 3D simulation environment for facilities and robotics using Nvidia Isaac Sim."
                 tags={["Python", "Nvidia Isaac Sim", "ROS2", "Docker"]}
                 image="/placeholder.svg?height=200&width=300"
                 link="https://example.com/project4"
               />
               <ProjectCard
-                title="Salary Calculation Tool"
-                description="A web application that automatically calculates and generates reports for employees' monthly salaries."
+                title={t("title5")}//"Salary Calculation Tool"
+                description={t("description5")}//"A web application that automatically calculates and generates reports for employees' monthly salaries."
                 tags={["React", "Next.js", "MongoDB", 'Ubuntu', "Tailwind CSS"]}
                 image="/placeholder.svg?height=200&width=300"
                 link="https://example.com/project5"
               />
               <ProjectCard
-                title="ML Image recognition tool"
-                description="A web application that uses machine learning to recognize and classify images."
+                title={t("title6")}//"ML Image recognition tool"
+                description={t("description6")}//"A web application that uses machine learning to recognize and classify images."
                 tags={["React", "Node.js", "TensorFlow", 'AWS SageMaker', "Tailwind CSS", 'Yolov5']}
                 image="/placeholder.svg?height=200&width=300"
                 link="https://example.com/project6"
@@ -261,7 +299,8 @@ return (
             <div className="mt-12 text-center">
               <Button variant="outline" asChild>
                 <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" /> View More on GitHub
+                  <Github className="mr-2 h-4 w-4" /> 
+                  {t("view_more")}{/* View More on GitHub */}
                 </Link>
               </Button>
             </div>
@@ -271,9 +310,15 @@ return (
         <AnimatedSection id="experience" className="py-16 md:py-24 bg-muted/50">
           <div className="container">
             <div className="mx-auto max-w-[58rem] space-y-6 text-center">
-              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Professional Journey</div>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Work Experience</h2>
-              <p className="text-muted-foreground">My professional background and career milestones.</p>
+              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                 {t("journey")}{/*Professional Journey */}
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                {t("experience1")}{/*Work Experience */}
+              </h2>
+              <p className="text-muted-foreground">
+                {t("background")}{/*My professional background and career milestones. */}
+              </p>
             </div>
             <div className="mx-auto mt-12 max-w-3xl">
               <ExperienceTimeline />
@@ -285,11 +330,14 @@ return (
           <div className="container">
             <div className="mx-auto grid max-w-[58rem] gap-8 md:grid-cols-2">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Get in Touch</div>
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Let's Work Together</h2>
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+                  {t("touch")}{/*Get in Touch*/}
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  {t("together")}{/*Let's Work Together*/}
+                </h2>
                 <p className="text-muted-foreground">
-                  I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
-                  vision.
+                  {t("contact_description")}{/* I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. */}
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center">
@@ -318,7 +366,9 @@ return (
           <div className="flex items-center gap-2">
             <Code className="h-5 w-5" />
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} CodyPortfolio. All rights reserved.
+            <p className="text-sm text-muted-foreground">
+              © 2025 CodyPortfolio. All rights reserved.
+            </p>
             </p>
           </div>
           <div className="flex gap-4">

@@ -1,0 +1,50 @@
+{
+    "Home": "ホーム",
+    "About": "紹介",
+    "Skills": "スキル",
+    "Projects": "プロジェクト",
+    "Experience": "経験",
+    "Contact": "お問い合わせ",
+  
+    "title1": "デジタル体験の構築",
+    "subtitle": "アイデアを洗練された機能的なソリューションへ変換",
+  
+    "projects": "プロジェクトを見る",
+    "contact": "お問い合わせ",
+  
+    "about": "紹介",
+    "about_title": "多才なフルスタックエンジニアとして卓越を目指す",
+    "about_description": "私は2年以上の経験を持つフルスタックエンジニアです。",
+    "about_description2": "フロントエンドとバックエンドの両方の技術に精通しており、開発チームにとって欠かせない存在となることを目指しています。継続的な学習と問題解決への取り組みにより、複雑な課題にも対応可能です。",
+  
+    "skills": "スキルと技術",
+    "toolkit": "私の技術ツールキット",
+    "skill_description": "フルスタック全体でさまざまな技術を扱ってきました。",
+    "featured_projects": "注目のプロジェクト",
+    "recent_work": "最近の作業",
+    "projects_description": "最近取り組んだプロジェクトをご紹介します",
+    
+    "project_title1": "MangaAI",
+    "description1": "OpenAIモデルを使用して日本のマンガを自動翻訳します。",
+    "title2": "会議要約ツール",
+    "description2": "会議のノートを要約・翻訳し、アクション項目を抽出します。",
+    "title3": "SNSデータ可視化プラットフォーム",
+    "description3": "Instagram APIやTwitter APIを使ったSNSデータの分析・可視化ツール。",
+    "title4": "3Dシミュレーション環境",
+    "description4": "Nvidia Isaac Simを使用した施設やロボット向けの高度な3Dシミュレーション環境。",
+    "title5": "給与計算ツール",
+    "description5": "従業員の月給を自動計算し、レポートを生成するWebアプリ。",
+    "title6": "ML画像認識ツール",
+    "description6": "機械学習を活用し、画像を認識・分類するWebアプリケーション。",
+  
+    "view_more": "GitHubでさらに見る",
+  
+    "journey": "キャリアの歩み",
+    "experience1": "職務経歴",
+    "background": "私の職務経歴とキャリアのマイルストーンをご紹介します。",
+  
+    "touch": "お問い合わせ",
+    "together": "一緒に働きましょう",
+    "contact_description": "新しいプロジェクト、創造的なアイデア、またはビジョンの実現に向けた機会について、いつでもお気軽にご相談ください。"
+  }
+  

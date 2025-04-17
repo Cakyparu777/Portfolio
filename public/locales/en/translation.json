@@ -1,0 +1,50 @@
+{
+    "Home": "Home",
+    "About": "About",
+    "Skills": "Skills",
+    "Projects": "Projects",
+    "Experience": "Experience",
+    "Contact": "Contact",
+  
+    "title1": "Building Digital Experiences",
+    "subtitle": "Transforming Ideas into Polished, Functional Solutions",
+  
+    "projects": "View Projects",
+    "contact": "Contact Me",
+  
+    "about": "About",
+    "about_title": "Aiming for Excellence as a Versatile Full-Stack Engineer",
+    "about_description": "I am a full-stack engineer with over 2 years of experience.",
+    "about_description2": "Proficient in both frontend and backend technologies, I strive to be an invaluable asset to any development team. My commitment to continuous learning and problem-solving enables me to tackle complex challenges.",
+  
+    "skills": "Skills & Technologies",
+    "toolkit": "My Technical Toolkit",
+    "toolkit_description": "I have worked with a variety of technologies across the full stack.",
+    "featured_projects": "Featured Projects",
+    "recent_work": "Recent work",
+    "projects_description": "Here are some of the projects I've worked on recently",
+    
+    "project_title1": "MangaAI",
+    "description1": "Automatically translates Japanese manga using OpenAI models.",
+    "title2": "Meeting Summary Tool",
+    "description2": "Summarizes and translates meeting notes while extracting action items.",
+    "title3": "SNS Data Visualization Platform",
+    "description3": "Analyzes and visualizes SNS data using Instagram and Twitter APIs.",
+    "title4": "3D Simulation Environment",
+    "description4": "Advanced 3D simulation for facilities and robots using Nvidia Isaac Sim.",
+    "title5": "Salary Calculation Tool",
+    "description5": "A web app that automatically calculates employee salaries and generates reports.",
+    "title6": "ML Image Recognition Tool",
+    "description6": "A web app for recognizing and classifying images using machine learning.",
+  
+    "view_more": "View More on GitHub",
+  
+    "journey": "Career Journey",
+    "experience1": "Work Experience",
+    "background": "An overview of my professional background and career milestones.",
+  
+    "touch": "Contact",
+    "together": "Let's Work Together",
+    "contact_description": "Feel free to reach out for new projects, creative ideas, or opportunities to bring your vision to life."
+  }
+  

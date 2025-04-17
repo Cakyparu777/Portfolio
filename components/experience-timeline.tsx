@@ -28,7 +28,7 @@ const experiences: Experience[] = [
     company: "OrchArd Consulting",
     period: "2025.1 - 2025.3",
     description:
-"Developed the frontend of a web application that automatically calculates and generates reports for employees' monthly salaries. Collaborated closely with backend developers to ensure seamless data integration and user experience. Specialized in React and  TailwindCSS to create an intuitive and responsive interface."    },
+      "Developed the frontend of a web application that automatically calculates and generates reports for employees' monthly salaries. Collaborated closely with backend developers to ensure seamless data integration and user experience. Specialized in React and  TailwindCSS to create an intuitive and responsive interface."    },
 {
     id: 3,
     role: "Fullstack Developer",
