@@ -314,7 +314,7 @@ return (
                  {t("journey")}{/*Professional Journey */}
               </div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                {t("experience1")}{/*Work Experience */}
+                {t("experience_title")}{/*Work Experience */}
               </h2>
               <p className="text-muted-foreground">
                 {t("background")}{/*My professional background and career milestones. */}
