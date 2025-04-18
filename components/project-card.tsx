@@ -28,7 +28,7 @@ export function ProjectCard({ title, description, tags, image, link }: ProjectCa
       >
         <div className="relative overflow-hidden aspect-[16/9]">
           <img
-            src={image || "/placeholder.svg"}
+            src={image || "/manga.png"}
             alt={title}
             className="w-full h-full object-cover transition-transform duration-500"
             style={{

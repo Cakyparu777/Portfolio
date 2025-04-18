@@ -1,36 +1,41 @@
-'use client'
+'use client';
 
-import Link from "next/link"
-import Image from "next/image"
-import { ArrowRight, Code, Github, Linkedin, Mail, User, Globe } from "lucide-react"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Code, Github, Linkedin, Mail, User, Globe } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useTranslation } from "react-i18next";
+import "@/lib/i18n";
 
-import { Button } from "@/components/ui/button"
-import { ProjectCard } from "@/components/project-card"
-import { SkillBadge } from "@/components/skill-badge"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { AnimatedText } from "@/components/animated-text"
-import { AnimatedSection } from "@/components/animated-section"
-import { ContactForm } from "@/components/contact-form"
-import { ExperienceTimeline } from "@/components/experience-timeline"
-import { useTheme } from "next-themes"
-import { useTranslation } from "react-i18next"
-import "@/lib/i18n"
+import { Button } from "@/components/ui/button";
+import { ProjectCard } from "@/components/project-card";
+import { SkillBadge } from "@/components/skill-badge";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { AnimatedText } from "@/components/animated-text";
+import { AnimatedSection } from "@/components/animated-section";
+import { ContactForm } from "@/components/contact-form";
+import { ExperienceTimeline } from "@/components/experience-timeline";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export default function Home() {
-  const { theme } = useTheme()
-  const { t, i18n } = useTranslation()
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng)
-  }
-  
+  const { theme } = useTheme();
+  const { t, i18n, ready } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
 
-return (
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  if (!isClient || !ready) {
+    return null; // Wait until client-side rendering and translations are ready
+  }
+
+  return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
@@ -40,34 +45,19 @@ return (
               <span className="font-bold inline-block">{t("Home")}</span>
             </Link>
             <nav className="hidden gap-6 md:flex">
-              <Link
-                href="#about"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link href="#about" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                 {t("About")}
               </Link>
-              <Link
-                href="#skills"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link href="#skills" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                 {t("Skills")}
               </Link>
-              <Link
-                href="#projects"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link href="#projects" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                 {t("Projects")}
               </Link>
-              <Link
-                href="#experience"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link href="#experience" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                 {t("Experience")}
               </Link>
-              <Link
-                href="#contact"
-                className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
+              <Link href="#contact" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
                 {t("Contact")}
               </Link>
             </nav>
@@ -189,6 +179,7 @@ return (
                   priority
                   className="object-cover"
                   loading="eager"
+                  style={{ width: "auto", height: "auto" }}
                 />
                 </div>
               </div>
@@ -366,9 +357,7 @@ return (
           <div className="flex items-center gap-2">
             <Code className="h-5 w-5" />
             <p className="text-sm text-muted-foreground">
-            <p className="text-sm text-muted-foreground">
               © 2025 CodyPortfolio. All rights reserved.
-            </p>
             </p>
           </div>
           <div className="flex gap-4">
@@ -382,5 +371,5 @@ return (
         </div>
       </footer>
     </div>
-  )
+  );
 }
