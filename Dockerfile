@@ -1,4 +1,4 @@
-# Install dependencies and build the app
+# Build stage
 FROM node:18-alpine AS builder
 
 # Set working directory
@@ -6,34 +6,47 @@ WORKDIR /app
 
 # Install dependencies separately to leverage Docker cache
 COPY package.json package-lock.json ./
-RUN npm ci
 
-# Copy the rest of the app
+# Install all dependencies (including devDependencies for build)
+RUN npm ci --verbose
+
+# Copy source code
 COPY . .
 
-# Build the app for production
+# Set memory limit for Node.js and build
+ENV NODE_OPTIONS="--max-old-space-size=1024"
 RUN npm run build
 
-# Production image — minimal, secure, fast
+# Production stage
 FROM node:18-alpine AS runner
 
 # Create non-root user for security
 RUN addgroup -S app && adduser -S app -G app
-USER app
 
 WORKDIR /app
 
-# Copy only necessary files from builder
-COPY --chown=app:app --from=builder /app/public ./public
-COPY --chown=app:app --from=builder /app/.next ./.next
-COPY --chown=app:app --from=builder /app/node_modules ./node_modules
-COPY --chown=app:app --from=builder /app/package.json ./package.json
+# Copy package files
+COPY package.json package-lock.json ./
+
+# Install only production dependencies
+RUN npm ci --only=production --verbose && npm cache clean --force
+
+# Copy built application from builder stage
+COPY --from=builder --chown=app:app /app/.next ./.next
+COPY --from=builder --chown=app:app /app/public ./public
+
+# Change to non-root user
+USER app
 
 # Set production environment
 ENV NODE_ENV=production
 
-# Expose the port
+# Expose port
 EXPOSE 3000
 
-# Start the Next.js server
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+
+# Start the application
 CMD ["npm", "start"]
