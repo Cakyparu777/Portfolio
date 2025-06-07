@@ -2,9 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
-import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import "@/lib/i18n";
 
 interface Experience {
   id: number;
@@ -15,36 +13,34 @@ interface Experience {
 }
 
 export function ExperienceTimeline() {
-  const { t } = useTranslation("translation");
-
   const experiences: Experience[] = [
     {
       id: 1,
       role: "Full Stack Developer",
       company: "Cal LLC",
       period: "2025 - Current",
-      description: t("experience1"),
+      description: "Working on my AWS Practitioner Certificate, own portfolio website and AI chatbot reservation system using Python, Next.js, React, PostgreSQL.",
     },
     {
       id: 2,
       role: "Frontend Developer",
       company: "OrchArd Consulting",
       period: "2025.1 - 2025.3",
-      description: t("experience2"),
+      description: "Developed the frontend of a web application that automatically calculates and generates reports for employees' monthly salaries. Collaborated closely with backend developers to ensure seamless data integration and user experience. Specialized in React and TailwindCSS to create an intuitive and responsive interface.",
     },
     {
       id: 3,
       role: "Fullstack Developer",
       company: "Mirai Technologies LLC",
       period: "2024.5 - 2025.1",
-      description: t("experience3"),
+      description: "Successfully led a team of four in developing an advanced 3D simulation environment for facilities and robotics, utilizing Nvidia Isaac Sim, ROS2, and Python to enhance operational efficiency and innovation.",
     },
     {
       id: 4,
       role: "Junior Developer",
       company: "Dentsu Data Artist Mongol LLC",
       period: "2023.4 - 2024.5",
-      description: t("experience4"),
+      description: "Developed a web application for marketing purposes, focusing on backend development with Python. Implemented CI/CD pipelines and successfully deployed the application on AWS to ensure seamless integration and scalability.",
     },
   ];
 
