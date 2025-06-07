@@ -22,26 +22,17 @@ export default function Home() {
   const { theme } = useTheme();
   const { t, i18n, ready } = useTranslation();
   const [isClient, setIsClient] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
-    // Add a timeout to prevent infinite loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 100);
-    
-    return () => clearTimeout(timer);
   }, []);
 
   const changeLanguage = (lng: string) => {
-    if (i18n && i18n.changeLanguage) {
-      i18n.changeLanguage(lng);
-    }
+    i18n.changeLanguage(lng);
   };
 
   // Provide fallback for server-side rendering and initial client render
-  if (!isClient || isLoading) {
+  if (!isClient) {
     return (
       <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
@@ -52,14 +43,17 @@ export default function Home() {
     );
   }
 
-  // Fallback function for translations
-  const translate = (key: string, fallback?: string) => {
-    try {
-      return ready && t ? t(key) : (fallback || key);
-    } catch (error) {
-      return fallback || key;
-    }
-  };
+  // Wait for translations to be ready before rendering content  
+  if (!ready) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+          <p>Loading translations...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -68,23 +62,23 @@ export default function Home() {
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <Code className="h-6 w-6" />
-              <span className="font-bold inline-block">{translate("Home", "Home")}</span>
+              <span className="font-bold inline-block">{t("Home")}</span>
             </Link>
             <nav className="hidden gap-6 md:flex">
               <Link href="#about" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {translate("About", "About")}
+                {t("About")}
               </Link>
               <Link href="#skills" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {translate("Skills", "Skills")}
+                {t("Skills")}
               </Link>
               <Link href="#projects" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {translate("Projects", "Projects")}
+                {t("Projects")}
               </Link>
               <Link href="#experience" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {translate("Experience", "Experience")}
+                {t("Experience")}
               </Link>
               <Link href="#contact" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {translate("Contact", "Contact")}
+                {t("Contact")}
               </Link>
             </nav>
           </div>

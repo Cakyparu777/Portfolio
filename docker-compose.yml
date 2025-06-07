@@ -11,6 +11,8 @@ services:
     environment:
       NODE_ENV: production
       NODE_OPTIONS: "--max-old-space-size=1024"
+      HOSTNAME: "0.0.0.0"
+      PORT: "3000"
     restart: always
     deploy:
       resources:
