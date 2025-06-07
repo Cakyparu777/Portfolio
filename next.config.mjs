@@ -23,10 +23,34 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    webpackBuildWorker: true,
-    parallelServerBuildTraces: true,
-    parallelServerCompiles: true,
+    // webpackBuildWorker: true,
+    // parallelServerBuildTraces: true,
+    // parallelServerCompiles: true,
   },
+  webpack: (config, { isServer }) => {
+    // Optimize build performance
+    config.optimization = {
+      ...config.optimization,
+      moduleIds: 'deterministic',
+    };
+    
+    if (!isServer) {
+      // Client-side optimizations
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+      };
+    }
+    
+    return config;
+  },
+  trailingSlash: false,
+  generateEtags: false,
+  swcMinify: true,
+  staticPageGenerationTimeout: 120,
 }
 
 if (userConfig) {

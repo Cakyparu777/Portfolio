@@ -22,18 +22,44 @@ export default function Home() {
   const { theme } = useTheme();
   const { t, i18n, ready } = useTranslation();
   const [isClient, setIsClient] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
+    // Add a timeout to prevent infinite loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+    if (i18n && i18n.changeLanguage) {
+      i18n.changeLanguage(lng);
+    }
   };
 
-  if (!isClient || !ready) {
-    return null; // Wait until client-side rendering and translations are ready
+  // Provide fallback for server-side rendering and initial client render
+  if (!isClient || isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
   }
+
+  // Fallback function for translations
+  const translate = (key: string, fallback?: string) => {
+    try {
+      return ready && t ? t(key) : (fallback || key);
+    } catch (error) {
+      return fallback || key;
+    }
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -42,23 +68,23 @@ export default function Home() {
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
               <Code className="h-6 w-6" />
-              <span className="font-bold inline-block">{t("Home")}</span>
+              <span className="font-bold inline-block">{translate("Home", "Home")}</span>
             </Link>
             <nav className="hidden gap-6 md:flex">
               <Link href="#about" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {t("About")}
+                {translate("About", "About")}
               </Link>
               <Link href="#skills" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {t("Skills")}
+                {translate("Skills", "Skills")}
               </Link>
               <Link href="#projects" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {t("Projects")}
+                {translate("Projects", "Projects")}
               </Link>
               <Link href="#experience" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {t("Experience")}
+                {translate("Experience", "Experience")}
               </Link>
               <Link href="#contact" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                {t("Contact")}
+                {translate("Contact", "Contact")}
               </Link>
             </nav>
           </div>
