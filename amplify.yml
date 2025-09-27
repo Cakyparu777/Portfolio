@@ -20,25 +20,8 @@ frontend:
         - echo "Building Next.js app..."
         - npm run build
         - echo "Build completed successfully"
-        - echo "Creating required files for Amplify compatibility..."
-        - echo '{}' > out/required-server-files.json
-        - mkdir -p out/.next
-        - echo '[]' > out/.next/trace
-        - echo '{}' > out/.next/server-trace-manifest.json
-        - echo '{}' > out/.next/static-trace-manifest.json
-        - echo "Listing created files..."
-        - ls -la out/.next/
-        - echo "Copying trace files to root level..."
-        - cp out/.next/trace out/trace
-        - cp out/.next/server-trace-manifest.json out/server-trace-manifest.json
-        - cp out/.next/static-trace-manifest.json out/static-trace-manifest.json
-        - echo "Creating additional trace files..."
-        - echo '{}' > out/.next/trace-manifest.json
-        - echo '{}' > out/trace-manifest.json
-        - echo "Final file listing..."
-        - ls -la out/ | head -20
   artifacts:
-    baseDirectory: out
+    baseDirectory: .next
     files:
       - '**/*'
   cache:

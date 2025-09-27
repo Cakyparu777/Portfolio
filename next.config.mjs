@@ -22,7 +22,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
+  // Remove static export for Amplify compatibility
+  // output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   experimental: {
