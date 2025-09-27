@@ -23,7 +23,9 @@ frontend:
         - echo "Creating required files for Amplify compatibility..."
         - echo '{}' > out/required-server-files.json
         - mkdir -p out/.next
-        - echo '{}' > out/.next/trace
+        - echo '[]' > out/.next/trace
+        - echo '{}' > out/.next/server-trace-manifest.json
+        - echo '{}' > out/.next/static-trace-manifest.json
   artifacts:
     baseDirectory: out
     files:

@@ -119,9 +119,9 @@ frontend:
 ### Deployment Cancelled
 - **Timeout Issues:** The build may be taking too long. Check AWS Amplify console for timeout errors.
 - **Memory Issues:** Large dependencies can cause memory issues. Consider optimizing your build.
-- **Node.js Version:** The `amplify.yml` includes `nvm install 18` and `nvm use 18` to ensure Node.js 18 is available. The `.nvmrc` file specifies the version.
+- **Node.js Version:** The `amplify.yml` includes `nvm install 20` and `nvm use 20` to ensure Node.js 20 is available. The `.nvmrc` file specifies the version. AWS Amplify requires Node.js 20 or later.
 - **Dependency Issues:** Try clearing the cache in AWS Amplify console and redeploy.
-- **Missing required files:** For Next.js static exports, `required-server-files.json` and `.next/trace` files are automatically created during build to satisfy Amplify's requirements.
+- **Missing required files:** For Next.js static exports, `required-server-files.json`, `.next/trace`, and trace manifest files are automatically created during build to satisfy Amplify's requirements.
 
 ### Images Not Loading
 - Make sure images are in the `public` directory
