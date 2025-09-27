@@ -22,6 +22,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   experimental: {
     // webpackBuildWorker: true,
     // parallelServerBuildTraces: true,
@@ -47,9 +50,7 @@ const nextConfig = {
     
     return config;
   },
-  trailingSlash: false,
   generateEtags: false,
-  swcMinify: true,
   staticPageGenerationTimeout: 120,
 }
 
