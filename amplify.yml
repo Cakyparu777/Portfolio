@@ -20,8 +20,10 @@ frontend:
         - echo "Building Next.js app..."
         - npm run build
         - echo "Build completed successfully"
-        - echo "Creating required-server-files.json for Amplify compatibility..."
+        - echo "Creating required files for Amplify compatibility..."
         - echo '{}' > out/required-server-files.json
+        - mkdir -p out/.next
+        - echo '{}' > out/.next/trace
   artifacts:
     baseDirectory: out
     files:

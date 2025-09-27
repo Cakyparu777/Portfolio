@@ -121,7 +121,7 @@ frontend:
 - **Memory Issues:** Large dependencies can cause memory issues. Consider optimizing your build.
 - **Node.js Version:** The `amplify.yml` includes `nvm install 18` and `nvm use 18` to ensure Node.js 18 is available. The `.nvmrc` file specifies the version.
 - **Dependency Issues:** Try clearing the cache in AWS Amplify console and redeploy.
-- **Missing required-server-files.json:** For Next.js static exports, this file is automatically created during build to satisfy Amplify's requirements.
+- **Missing required files:** For Next.js static exports, `required-server-files.json` and `.next/trace` files are automatically created during build to satisfy Amplify's requirements.
 
 ### Images Not Loading
 - Make sure images are in the `public` directory
@@ -137,6 +137,7 @@ frontend:
 1. **Build Timeout:** Default is 30 minutes. If your build takes longer, contact AWS support.
 2. **Memory Limits:** Default is 3GB RAM. If you need more, request a limit increase.
 3. **Cache Issues:** Clear the build cache in Amplify console if you encounter stale builds.
+4. **Server Trace Files:** AWS Amplify expects server trace files even for static exports. The build process creates these automatically.
 
 ## Support
 
