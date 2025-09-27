@@ -4,7 +4,6 @@ frontend:
     preBuild:
       commands:
         - echo "Starting preBuild phase..."
-        - nvm use 18
         - echo "Node version:"
         - node --version
         - echo "NPM version:"
