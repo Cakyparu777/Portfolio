@@ -116,6 +116,13 @@ frontend:
 - Verify that `next.config.mjs` has `output: 'export'`
 - Ensure all image files are in the `public` directory
 
+### Deployment Cancelled
+- **Timeout Issues:** The build may be taking too long. Check AWS Amplify console for timeout errors.
+- **Memory Issues:** Large dependencies can cause memory issues. Consider optimizing your build.
+- **Node.js Version:** Ensure you're using Node.js 18 (specified in `.nvmrc` and `amplify.yml`).
+- **Dependency Issues:** Try clearing the cache in AWS Amplify console and redeploy.
+- **Missing required-server-files.json:** For Next.js static exports, this file is automatically created during build to satisfy Amplify's requirements.
+
 ### Images Not Loading
 - Make sure images are in the `public` directory
 - Use relative paths starting with `/`
@@ -125,6 +132,11 @@ frontend:
 - All routes are pre-generated as static files
 - Use `Link` components for internal navigation
 - External links should use full URLs
+
+### Common Amplify Issues
+1. **Build Timeout:** Default is 30 minutes. If your build takes longer, contact AWS support.
+2. **Memory Limits:** Default is 3GB RAM. If you need more, request a limit increase.
+3. **Cache Issues:** Clear the build cache in Amplify console if you encounter stale builds.
 
 ## Support
 

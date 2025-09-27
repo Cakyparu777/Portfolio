@@ -3,12 +3,23 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo Installing dependencies...
-        - npm ci
+        - echo "Starting preBuild phase..."
+        - nvm use 18
+        - echo "Node version:"
+        - node --version
+        - echo "NPM version:"
+        - npm --version
+        - echo "Installing dependencies..."
+        - npm ci --prefer-offline --no-audit --progress=false
+        - echo "Dependencies installed successfully"
     build:
       commands:
-        - echo Building the Next.js app...
+        - echo "Starting build phase..."
+        - echo "Building Next.js app..."
         - npm run build
+        - echo "Build completed successfully"
+        - echo "Creating required-server-files.json for Amplify compatibility..."
+        - echo '{}' > out/required-server-files.json
   artifacts:
     baseDirectory: out
     files:
