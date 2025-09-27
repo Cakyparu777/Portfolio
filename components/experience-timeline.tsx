@@ -9,39 +9,48 @@ interface Experience {
   role: string;
   company: string;
   period: string;
-  description: string;
+  location: string;
+  achievements: string[];
 }
 
 export function ExperienceTimeline() {
   const experiences: Experience[] = [
     {
       id: 1,
-      role: "Full Stack Developer",
-      company: "Cal LLC",
-      period: "2025 - Current",
-      description: "Working on my AWS Practitioner Certificate, own portfolio website and AI chatbot reservation system using Python, Next.js, React, PostgreSQL.",
+      role: "Full Stack Engineer",
+      company: "CAL Co., Ltd.",
+      period: "Mar 2025 – Present",
+      location: "Tokyo, Japan",
+      achievements: [
+        "Developed and maintained full-stack applications in AWS cloud environment, utilizing serverless architecture with Lambda functions and API Gateway.",
+        "Implemented backend data processing pipelines using AWS services (Glue, Step Functions, Athena, Lambda, S3, Amplify, API Gateway, Cognito) and refactored Python code, reducing processing time by 50%.",
+        "Collaborated in agile development environment using Git version control and JIRA project management, contributing to both frontend and backend components across 2 major DataLake projects."
+      ]
     },
     {
       id: 2,
-      role: "Frontend Developer",
-      company: "OrchArd Consulting",
-      period: "2025.1 - 2025.3",
-      description: "Developed the frontend of a web application that automatically calculates and generates reports for employees' monthly salaries. Collaborated closely with backend developers to ensure seamless data integration and user experience. Specialized in React and TailwindCSS to create an intuitive and responsive interface.",
+      role: "Software Engineer",
+      company: "Mirai Technologies LLC",
+      period: "May 2024 – Mar 2025",
+      location: "Ulaanbaatar, Mongolia",
+      achievements: [
+        "Led a team of 4 engineers to develop a robotics simulation using NVIDIA Isaac Sim, enabling the AI team to test self-driving robot models for automated car parking tasks.",
+        "Integrated a Windows application to transmit binary robot control signals into the simulation, ensuring accurate real-time robot behavior.",
+        "Coordinated team efforts and managed project milestones to deliver a robust testing platform for AI model validation."
+      ]
     },
     {
       id: 3,
-      role: "Fullstack Developer",
-      company: "Mirai Technologies LLC",
-      period: "2024.5 - 2025.1",
-      description: "Successfully led a team of four in developing an advanced 3D simulation environment for facilities and robotics, utilizing Nvidia Isaac Sim, ROS2, and Python to enhance operational efficiency and innovation.",
-    },
-    {
-      id: 4,
-      role: "Junior Developer",
-      company: "Dentsu Data Artist Mongol LLC",
-      period: "2023.4 - 2024.5",
-      description: "Developed a web application for marketing purposes, focusing on backend development with Python. Implemented CI/CD pipelines and successfully deployed the application on AWS to ensure seamless integration and scalability.",
-    },
+      role: "Junior Full Stack Engineer",
+      company: "Dentsu Data Artist Mongol",
+      period: "Apr 2023 – May 2024",
+      location: "Ulaanbaatar, Mongolia",
+      achievements: [
+        "Developed full-stack web applications using React.js and JavaScript, integrating OpenAI APIs for AI-powered features.",
+        "Built responsive interfaces and backend services for image recognition, reducing processing time by 40%.",
+        "Implemented RESTful APIs and database integration for chatbot solutions, ensuring high uptime."
+      ]
+    }
   ];
 
   return (
@@ -67,9 +76,21 @@ export function ExperienceTimeline() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2">
-                <p className="font-medium">{experience.company}</p>
-                <p className="text-sm text-muted-foreground">{experience.description}</p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <p className="font-medium">{experience.company}</p>
+                  <p className="text-sm text-muted-foreground">{experience.location}</p>
+                </div>
+                <div className="space-y-2">
+                  <ul className="space-y-1">
+                    {experience.achievements.map((achievement, idx) => (
+                      <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary mt-1.5 h-1.5 w-1.5 rounded-full bg-current flex-shrink-0" />
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </CardContent>
           </Card>

@@ -48,7 +48,7 @@ NEXT_PUBLIC_EMAIL=tuguldur.gee.2001@gmail.com
 2. **Configure Build Settings:**
    - Amplify will automatically detect the `amplify.yml` file
    - Verify these settings:
-     - **Build command:** `npm run build && npm run export`
+     - **Build command:** `npm run build`
      - **Base directory:** (leave empty)
      - **Artifacts directory:** `out`
 
@@ -75,9 +75,8 @@ To test the build process locally:
 # Install dependencies
 npm install
 
-# Build and export
+# Build (export happens automatically with output: 'export' in next.config.mjs)
 npm run build
-npm run export
 
 # The static files will be in the 'out' directory
 # You can serve them with any static file server
@@ -100,7 +99,6 @@ frontend:
       commands:
         - echo Building the Next.js app...
         - npm run build
-        - npm run export
   artifacts:
     baseDirectory: out
     files:

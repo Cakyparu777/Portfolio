@@ -50,7 +50,7 @@ export default function SimpleHome() {
           <div className="p-6 border rounded-lg">
             <h2 className="text-2xl font-bold mb-4">About</h2>
             <p className="text-gray-600">
-              I am a full-stack engineer with over 2 years of experience, 
+              I am a full-stack engineer with almost 3 years of experience, 
               specializing in modern web technologies and cloud solutions.
             </p>
           </div>

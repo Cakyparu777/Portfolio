@@ -50,14 +50,14 @@ export function ProjectCard({ title, description, tags, image, link }: ProjectCa
               </Badge>
             ))}
           </div>
-          <Link
+          {/* <Link
             href={link}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center text-sm font-medium text-primary hover:underline"
           >
             View Project <ArrowUpRight className="ml-1 h-4 w-4" />
-          </Link>
+          </Link> */}
         </CardFooter>
       </Card>
     </motion.div>
