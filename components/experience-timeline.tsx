@@ -22,9 +22,9 @@ export function ExperienceTimeline() {
       period: "Mar 2025 – Present",
       location: "Tokyo, Japan",
       achievements: [
-        "Developed and maintained full-stack applications in AWS cloud environment, utilizing serverless architecture with Lambda functions and API Gateway.",
-        "Implemented backend data processing pipelines using AWS services (Glue, Step Functions, Athena, Lambda, S3, Amplify, API Gateway, Cognito) and refactored Python code, reducing processing time by 50%.",
-        "Collaborated in agile development environment using Git version control and JIRA project management, contributing to both frontend and backend components across 2 major DataLake projects."
+        "Led frontend development for a web application used by NEC Corporation to assess workers security rule education and compliance.",
+        "Set up and managed AWS deployment for the project, ensuring smooth delivery and scalability.",
+        "Established and maintained a Git-based CI/CD environment with multiple branches (main, dev, test) to streamline development and deployment workflows."
       ]
     },
     {

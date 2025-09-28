@@ -216,42 +216,42 @@ export default function Home() {
                 title="MangaAI"
                 description="Automatically translates Japanese manga using OpenAI models."
                 tags={["Python", "FastAPI", "OpenAI API", "MySQL, React"]}
-                image="/placeholder.svg?height=200&width=300"
+                image="/manga.png"
                 link="https://example.com/project1"
               />
               <ProjectCard
                 title="Meeting Summary Tool"
                 description="Summarizes and translates meeting notes while extracting action items."
                 tags={["Python", "FastAPI", "OpenAI API", "PostgreSQL, Streamlit, AWS"]}
-                image="/placeholder.svg?height=200&width=300"
+                image="/meeting_summary.png"
                 link="https://example.com/project2"
               />
               <ProjectCard
                 title="SNS Data Visualization Platform"
                 description="Analyzes and visualizes SNS data using Instagram and Twitter APIs."
                 tags={["Python", "FastAPI", "PostgreSQL", "React", "Chart.js", 'AWS']}
-                image="/placeholder.svg?height=200&width=300"
+                image="/data_visualization.png"
                 link="https://example.com/project3"
               />
               <ProjectCard
                 title="3D Simulation Environment"
                 description="Advanced 3D simulation for facilities and robots using Nvidia Isaac Sim."
                 tags={["Python", "Nvidia Isaac Sim", "ROS2", "Docker"]}
-                image="/placeholder.svg?height=200&width=300"
+                image="/simulation.jpg"
                 link="https://example.com/project4"
               />
               <ProjectCard
                 title="Salary Calculation Tool"
                 description="A web app that automatically calculates employee salaries and generates reports."
                 tags={["React", "Next.js", "MongoDB", 'Ubuntu', "Tailwind CSS"]}
-                image="/placeholder.svg?height=200&width=300"
+                image="/placeholder.jpg"
                 link="https://example.com/project5"
               />
               <ProjectCard
                 title="ML Image Recognition Tool"
                 description="A web app for recognizing and classifying images using machine learning."
                 tags={["React", "Node.js", "TensorFlow", 'AWS SageMaker', "Tailwind CSS", 'Yolov5']}
-                image="/placeholder.svg?height=200&width=300"
+                image="/placeholder.jpg"
                 link="https://example.com/project6"
               />
             </div>
