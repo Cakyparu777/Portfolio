@@ -296,7 +296,7 @@ export default function Home() {
                   Let's Work Together
                 </h2>
                 <p className="text-muted-foreground">
-                  Feel free to reach out for new projects, creative ideas, or opportunities to bring your vision to life.
+                  I welcome inquiries regarding potential job opportunities, collaborations, or projects where my skills and experience may be a strong fit.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center">
