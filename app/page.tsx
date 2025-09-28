@@ -136,7 +136,7 @@ export default function Home() {
                 </p>
                 <div className="flex gap-4">
                   <Button variant="outline" asChild>
-                    <Link href="/resume.pdf" target="_blank">
+                    <Link href="/Ganbaatar_Tuguldur_CV_JP-compressed.pdf" download="Ganbaatar_Tuguldur_CV.pdf">
                       <User className="mr-2 h-4 w-4" /> Resume
                     </Link>
                   </Button>
@@ -328,11 +328,21 @@ export default function Home() {
               © 2025 CodyPortfolio. All rights reserved.
             </p>
           </div>
-          <div className="flex gap-4">
-            <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+          <div className="flex gap-4 !static !w-auto !max-w-none !flex-nowrap">
+            <Link
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground !static !w-auto !max-w-none"
+              style={{ pointerEvents: "auto" }}
+              tabIndex={-1}
+            >
               Privacy Policy
             </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+            <Link
+              href="#"
+              className="text-sm text-muted-foreground hover:text-foreground !static !w-auto !max-w-none"
+              style={{ pointerEvents: "auto" }}
+              tabIndex={-1}
+            >
               Terms of Service
             </Link>
           </div>
