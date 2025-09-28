@@ -127,7 +127,7 @@ export default function Home() {
                   Aiming for Excellence as a Versatile Full-Stack Engineer
                 </h2>
                 <p className="text-muted-foreground">
-                  I am a full-stack engineer with over 2 years of experience.
+                  I am a full-stack engineer with almost 3 years of experience.
                   My goal is to be the go-to person for any developer in need, providing support and expertise 
                   across the entire stack.
                 </p>
@@ -244,14 +244,14 @@ export default function Home() {
                 title="Salary Calculation Tool"
                 description="A web app that automatically calculates employee salaries and generates reports."
                 tags={["React", "Next.js", "MongoDB", 'Ubuntu', "Tailwind CSS"]}
-                image="/placeholder.jpg"
+                image="/salary.png"
                 link="https://example.com/project5"
               />
               <ProjectCard
                 title="ML Image Recognition Tool"
                 description="A web app for recognizing and classifying images using machine learning."
                 tags={["React", "Node.js", "TensorFlow", 'AWS SageMaker', "Tailwind CSS", 'Yolov5']}
-                image="/placeholder.jpg"
+                image="/image.png"
                 link="https://example.com/project6"
               />
             </div>
