@@ -18,6 +18,7 @@ import { ExperienceTimeline } from "@/components/experience-timeline";
 export default function Home() {
   const { theme } = useTheme();
   const [isClient, setIsClient] = useState(false);
+  const [showJapanese, setShowJapanese] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
@@ -136,12 +137,43 @@ export default function Home() {
                 </p>
                 <div className="flex gap-4">
                   <Button variant="outline" asChild>
-                    <Link href="/Ganbaatar_Tuguldur_CV_JP-compressed.pdf" download="Ganbaatar_Tuguldur_CV.pdf">
-                      <User className="mr-2 h-4 w-4" /> Resume
+                    <Link 
+                      href="/履歴書.pdf" 
+                      download="履歴書.pdf"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setShowJapanese(!showJapanese);
+                        setTimeout(() => {
+                          const link = document.createElement('a');
+                          link.href = '/履歴書.pdf';
+                          link.download = '履歴書.pdf';
+                          link.click();
+                        }, 0);
+                      }}
+                    >
+                      <User className="mr-2 h-4 w-4" /> {showJapanese ? '履歴書' : 'Resume (Japanese)'}
                     </Link>
                   </Button>
                   <Button variant="outline" asChild>
-                    <Link href="mailto:contact@example.com">
+                    <Link 
+                      href="/職務経歴書.pdf" 
+                      download="職務経歴書.pdf"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setShowJapanese(!showJapanese);
+                        setTimeout(() => {
+                          const link = document.createElement('a');
+                          link.href = '/職務経歴書.pdf';
+                          link.download = '職務経歴書.pdf';
+                          link.click();
+                        }, 0);
+                      }}
+                    >
+                      <User className="mr-2 h-4 w-4" /> {showJapanese ? '職務経歴書' : 'Job History (Japanese)'}
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="tuguldur.gee.2001@gmail.com">
                       <Mail className="mr-2 h-4 w-4" /> Email Me
                     </Link>
                   </Button>
