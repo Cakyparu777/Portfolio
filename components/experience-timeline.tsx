@@ -17,18 +17,6 @@ export function ExperienceTimeline() {
   const experiences: Experience[] = [
     {
       id: 1,
-      role: "Full Stack Engineer (Frontend Lead)",
-      company: "CAL Co., Ltd.",
-      period: "Mar 2025 – Present",
-      location: "Tokyo, Japan",
-      achievements: [
-        "Leading frontend development for an AI-based security knowledge assessment system for NEC.",
-        "Implemented AWS Cognito for authentication and managed deployments using AWS Amplify & Lambda.",
-        "Established Git approval flows and code review processes to ensure high code quality."
-      ]
-    },
-    {
-      id: 2,
       role: "Full Stack Engineer",
       company: "Akatsuki AI Technologies",
       period: "Nov 2025 – Present",
@@ -37,6 +25,18 @@ export function ExperienceTimeline() {
         "Developed a marketing support system that generates customer personas from purchasing data using AI.",
         "Designed and implemented Generative AI chat features with a focus on UI/UX.",
         "Implemented strict access control and permission management for handling sensitive client data."
+      ]
+    },
+    {
+      id: 2,
+      role: "Full Stack Engineer (Frontend Lead)",
+      company: "CAL Co., Ltd.",
+      period: "Mar 2025 – Nov 2025",
+      location: "Tokyo, Japan",
+      achievements: [
+        "Leading frontend development for an AI-based security knowledge assessment system for NEC.",
+        "Implemented AWS Cognito for authentication and managed deployments using AWS Amplify & Lambda.",
+        "Established Git approval flows and code review processes to ensure high code quality."
       ]
     },
     {

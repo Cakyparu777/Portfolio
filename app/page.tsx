@@ -136,15 +136,15 @@ export default function Home() {
                 <div className="flex gap-4">
                   <Button variant="outline" asChild>
                     <Link
-                      href="/履歴書.pdf"
-                      download="履歴書.pdf"
+                      href="/Resume_2026.pdf"
+                      download="Resume_2026.pdf"
                       onClick={(e) => {
                         e.preventDefault();
                         setShowJapanese(!showJapanese);
                         setTimeout(() => {
                           const link = document.createElement('a');
-                          link.href = '/履歴書.pdf';
-                          link.download = '履歴書.pdf';
+                          link.href = '/Resume_2026.pdf';
+                          link.download = 'Resume_2026.pdf';
                           link.click();
                         }, 0);
                       }}
@@ -154,15 +154,15 @@ export default function Home() {
                   </Button>
                   <Button variant="outline" asChild>
                     <Link
-                      href="/職務経歴書.pdf"
-                      download="職務経歴書.pdf"
+                      href="/Work_History_2026.pdf"
+                      download="Work_History_2026.pdf"
                       onClick={(e) => {
                         e.preventDefault();
                         setShowJapanese(!showJapanese);
                         setTimeout(() => {
                           const link = document.createElement('a');
-                          link.href = '/職務経歴書.pdf';
-                          link.download = '職務経歴書.pdf';
+                          link.href = '/Work_History_2026.pdf';
+                          link.download = 'Work_History_2026.pdf';
                           link.click();
                         }, 0);
                       }}
