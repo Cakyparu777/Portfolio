@@ -17,38 +17,50 @@ export function ExperienceTimeline() {
   const experiences: Experience[] = [
     {
       id: 1,
-      role: "Full Stack Engineer",
+      role: "Full Stack Engineer (Frontend Lead)",
       company: "CAL Co., Ltd.",
       period: "Mar 2025 – Present",
       location: "Tokyo, Japan",
       achievements: [
-        "Led frontend development for a web application used by NEC Corporation to assess workers security rule education and compliance.",
-        "Set up and managed AWS deployment for the project, ensuring smooth delivery and scalability.",
-        "Established and maintained a Git-based CI/CD environment with multiple branches (main, dev, test) to streamline development and deployment workflows."
+        "Leading frontend development for an AI-based security knowledge assessment system for NEC.",
+        "Implemented AWS Cognito for authentication and managed deployments using AWS Amplify & Lambda.",
+        "Established Git approval flows and code review processes to ensure high code quality."
       ]
     },
     {
       id: 2,
-      role: "Software Engineer",
-      company: "Mirai Technologies LLC",
-      period: "May 2024 – Mar 2025",
-      location: "Ulaanbaatar, Mongolia",
+      role: "Full Stack Engineer",
+      company: "Akatsuki AI Technologies",
+      period: "Nov 2024 – Feb 2026",
+      location: "Tokyo, Japan",
       achievements: [
-        "Led a team of 4 engineers to develop a robotics simulation using NVIDIA Isaac Sim, enabling the AI team to test self-driving robot models for automated car parking tasks.",
-        "Integrated a Windows application to transmit binary robot control signals into the simulation, ensuring accurate real-time robot behavior.",
-        "Coordinated team efforts and managed project milestones to deliver a robust testing platform for AI model validation."
+        "Developed a marketing support system that generates customer personas from purchasing data using AI.",
+        "Designed and implemented Generative AI chat features with a focus on UI/UX.",
+        "Implemented strict access control and permission management for handling sensitive client data."
       ]
     },
     {
       id: 3,
-      role: "Junior Full Stack Engineer",
+      role: "Full Stack Engineer / Team Lead",
+      company: "Mirai Technologies LLC",
+      period: "May 2024 – Mar 2025",
+      location: "Ulaanbaatar, Mongolia",
+      achievements: [
+        "Led a 4-person team in building a 3D robot simulation environment using NVIDIA Isaac Sim & ROS2.",
+        "Developed a web-based Attendance & Payroll system using Next.js and MongoDB, automating complex calculations.",
+        "Managed project requirements, design, and team task allocation."
+      ]
+    },
+    {
+      id: 4,
+      role: "Web Developer",
       company: "Dentsu Data Artist Mongol",
       period: "Apr 2023 – May 2024",
       location: "Ulaanbaatar, Mongolia",
       achievements: [
-        "Developed full-stack web applications using React.js and JavaScript, integrating OpenAI APIs for AI-powered features.",
-        "Built responsive interfaces and backend services for image recognition, reducing processing time by 40%.",
-        "Implemented RESTful APIs and database integration for chatbot solutions, ensuring high uptime."
+        "Developed an AI Chatbot for Golf Reservations using React, Django, and OpenAI API, replacing manual call center tasks.",
+        "Built an internal AI Meeting Summary tool with Python/FastAPI and AWS, supporting multi-language translation.",
+        "Handled full-cycle development from infrastructure (Docker/AWS) to frontend and backend implementation."
       ]
     }
   ];

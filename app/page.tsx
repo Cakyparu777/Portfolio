@@ -128,17 +128,15 @@ export default function Home() {
                   Aiming for Excellence as a Versatile Full-Stack Engineer
                 </h2>
                 <p className="text-muted-foreground">
-                  I am a full-stack engineer with almost 3 years of experience.
-                  My goal is to be the go-to person for any developer in need, providing support and expertise 
-                  across the entire stack.
+                  I graduated from Tomakomai Kosen (Department of Electrical and Electronic Engineering) and have since worked as a Full-Stack Engineer across multiple companies. My expertise revolves around Python (FastAPI, Django) and JavaScript (React, Next.js), building internal business systems, AI applications, and 3D simulation environments.
                 </p>
                 <p className="text-muted-foreground">
-                  Proficient in both frontend and backend technologies, I strive to be an invaluable asset to any development team. My commitment to continuous learning and problem-solving enables me to tackle complex challenges.
+                  I handle the entire development lifecycle—from requirements definition to design, implementation, and testing. With a strong foundation in AWS cloud infrastructure and Docker-based development environments, I deliver robust, scalable solutions effectively.
                 </p>
                 <div className="flex gap-4">
                   <Button variant="outline" asChild>
-                    <Link 
-                      href="/履歴書.pdf" 
+                    <Link
+                      href="/履歴書.pdf"
                       download="履歴書.pdf"
                       onClick={(e) => {
                         e.preventDefault();
@@ -155,8 +153,8 @@ export default function Home() {
                     </Link>
                   </Button>
                   <Button variant="outline" asChild>
-                    <Link 
-                      href="/職務経歴書.pdf" 
+                    <Link
+                      href="/職務経歴書.pdf"
                       download="職務経歴書.pdf"
                       onClick={(e) => {
                         e.preventDefault();
@@ -181,16 +179,16 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center">
                 <div className="relative h-[500px] w-[350px] overflow-hidden rounded-lg">
-                <Image
-                  src="/user1.jpg"
-                  alt="Profile"
-                  width={350}
-                  height={350}
-                  priority
-                  className="object-cover"
-                  loading="eager"
-                  style={{ width: "auto", height: "auto" }}
-                />
+                  <Image
+                    src="/user1.jpg"
+                    alt="Profile"
+                    width={350}
+                    height={350}
+                    priority
+                    className="object-cover"
+                    loading="eager"
+                    style={{ width: "auto", height: "auto" }}
+                  />
                 </div>
               </div>
             </div>
@@ -212,17 +210,18 @@ export default function Home() {
             </div>
             <div className="mx-auto mt-12 max-w-[64rem]">
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                <SkillBadge name="Python" level={90} />
+                <SkillBadge name="Python" level={95} />
                 <SkillBadge name="FastAPI" level={90} />
-                <SkillBadge name="Django" level={80} />
+                <SkillBadge name="Django" level={85} />
                 <SkillBadge name="JavaScript" level={90} />
-                <SkillBadge name="React" level={90} />
-                <SkillBadge name="Next.js" level={85} />
                 <SkillBadge name="TypeScript" level={90} />
+                <SkillBadge name="React" level={90} />
+                <SkillBadge name="Next.js" level={90} />
+                <SkillBadge name="AWS" level={80} />
+                <SkillBadge name="Docker" level={85} />
                 <SkillBadge name="PostgreSQL" level={80} />
-                <SkillBadge name="MySQL" level={80} />
-                <SkillBadge name="AWS" level={75} />
-                <SkillBadge name="Docker" level={70} />
+                <SkillBadge name="MongoDB" level={80} />
+                <SkillBadge name="ROS2" level={75} />
                 <SkillBadge name="Tailwind CSS" level={90} />
                 <SkillBadge name="Git" level={90} />
               </div>
@@ -245,52 +244,52 @@ export default function Home() {
             </div>
             <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ProjectCard
-                title="MangaAI"
-                description="Automatically translates Japanese manga using OpenAI models."
-                tags={["Python", "FastAPI", "OpenAI API", "MySQL, React"]}
-                image="/manga.png"
-                link="https://example.com/project1"
+                title="AI Security Test System"
+                description="AI-driven security knowledge assessment system with personalized learning paths."
+                tags={["React", "TypeScript", "AWS Cognito", "AWS Lambda", "Amplify"]}
+                image="/security.png"
+                link="#"
               />
               <ProjectCard
-                title="Meeting Summary Tool"
-                description="Summarizes and translates meeting notes while extracting action items."
-                tags={["Python", "FastAPI", "OpenAI API", "PostgreSQL, Streamlit, AWS"]}
-                image="/meeting_summary.png"
-                link="https://example.com/project2"
+                title="Customer Persona Gen AI"
+                description="Marketing support system generating customer personas from data using Generative AI."
+                tags={["Python", "FastAPI", "React", "Next.js", "PostgreSQL"]}
+                image="/persona.png"
+                link="#"
               />
               <ProjectCard
-                title="SNS Data Visualization Platform"
-                description="Analyzes and visualizes SNS data using Instagram and Twitter APIs."
-                tags={["Python", "FastAPI", "PostgreSQL", "React", "Chart.js", 'AWS']}
-                image="/data_visualization.png"
-                link="https://example.com/project3"
-              />
-              <ProjectCard
-                title="3D Simulation Environment"
-                description="Advanced 3D simulation for facilities and robots using Nvidia Isaac Sim."
-                tags={["Python", "Nvidia Isaac Sim", "ROS2", "Docker"]}
+                title="Robot Simulation Env"
+                description="3D simulation environment for industrial robots using NVIDIA Isaac Sim & ROS2."
+                tags={["Python", "ROS2", "Isaac Sim", "MongoDB", "Socket.io"]}
                 image="/simulation.jpg"
-                link="https://example.com/project4"
+                link="#"
               />
               <ProjectCard
-                title="Salary Calculation Tool"
-                description="A web app that automatically calculates employee salaries and generates reports."
-                tags={["React", "Next.js", "MongoDB", 'Ubuntu', "Tailwind CSS"]}
+                title="Golf Reservation Chatbot"
+                description="AI chatbot for automated golf reservations replacing call center operations."
+                tags={["React", "Django", "MongoDB", "OpenAI API", "AWS"]}
+                image="/golf.png"
+                link="#"
+              />
+              <ProjectCard
+                title="Payroll & Attendance"
+                description="Unified web system for managing employee attendance and payroll calculations."
+                tags={["Next.js", "React", "MongoDB", "Docker", "FastAPI"]}
                 image="/salary.png"
-                link="https://example.com/project5"
+                link="#"
               />
               <ProjectCard
-                title="ML Image Recognition Tool"
-                description="A web app for recognizing and classifying images using machine learning."
-                tags={["React", "Node.js", "TensorFlow", 'AWS SageMaker', "Tailwind CSS", 'Yolov5']}
-                image="/image.png"
-                link="https://example.com/project6"
+                title="AI Meeting Summary"
+                description="Automated meeting summarization and translation tool for internal efficiency."
+                tags={["Python", "FastAPI", "SQL", "Docker", "AWS"]}
+                image="/meeting_summary.png"
+                link="#"
               />
             </div>
             <div className="mt-12 text-center">
               <Button variant="outline" asChild>
                 <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" /> 
+                  <Github className="mr-2 h-4 w-4" />
                   View More on GitHub
                 </Link>
               </Button>
@@ -302,7 +301,7 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto max-w-[58rem] space-y-6 text-center">
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                 Career Journey
+                Career Journey
               </div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 Work Experience
@@ -346,7 +345,7 @@ export default function Home() {
                 </div>
               </div>
               {/* <div> */}
-                {/* <ContactForm /> */}
+              {/* <ContactForm /> */}
               {/* </div> */}
             </div>
           </div>
@@ -380,6 +379,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }
