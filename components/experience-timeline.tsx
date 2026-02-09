@@ -31,7 +31,7 @@ export function ExperienceTimeline() {
       id: 2,
       role: "Full Stack Engineer",
       company: "Akatsuki AI Technologies",
-      period: "Nov 2024 – Feb 2026",
+      period: "Nov 2025 – Present",
       location: "Tokyo, Japan",
       achievements: [
         "Developed a marketing support system that generates customer personas from purchasing data using AI.",
