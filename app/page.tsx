@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Code, Github, Linkedin, Mail, User } from "lucide-react";
+import { ArrowRight, Code, FileText, Github, Linkedin, Mail, User } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -168,6 +168,11 @@ export default function Home() {
                       }}
                     >
                       <User className="mr-2 h-4 w-4" /> {showJapanese ? '職務経歴書' : 'Job History (Japanese)'}
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild>
+                    <Link href="/cv.html" target="_blank">
+                      <FileText className="mr-2 h-4 w-4" /> Resume (English)
                     </Link>
                   </Button>
                   <Button variant="outline" asChild>
