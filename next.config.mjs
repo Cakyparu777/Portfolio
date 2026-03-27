@@ -26,31 +26,8 @@ const nextConfig = {
   // output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  experimental: {
-    // webpackBuildWorker: true,
-    // parallelServerBuildTraces: true,
-    // parallelServerCompiles: true,
-  },
-  webpack: (config, { isServer }) => {
-    // Optimize build performance
-    config.optimization = {
-      ...config.optimization,
-      moduleIds: 'deterministic',
-    };
-    
-    if (!isServer) {
-      // Client-side optimizations
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-        crypto: false,
-      };
-    }
-    
-    return config;
-  },
+  turbopack: {},
+  experimental: {},
   generateEtags: false,
   staticPageGenerationTimeout: 120,
 }
