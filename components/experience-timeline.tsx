@@ -3,73 +3,18 @@
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-interface Experience {
-  id: number;
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  achievements: string[];
-}
+import { useLang } from "@/contexts/language-context";
+import { translations } from "@/lib/translations";
 
 export function ExperienceTimeline() {
-  const experiences: Experience[] = [
-    {
-      id: 1,
-      role: "Full Stack Engineer",
-      company: "Akatsuki AI Technologies",
-      period: "Nov 2025 – Present",
-      location: "Tokyo, Japan",
-      achievements: [
-        "Developed a marketing support system that generates customer personas from purchasing data using AI.",
-        "Designed and implemented Generative AI chat features with a focus on UI/UX.",
-        "Implemented strict access control and permission management for handling sensitive client data."
-      ]
-    },
-    {
-      id: 2,
-      role: "Full Stack Engineer (Frontend Lead)",
-      company: "CAL Co., Ltd.",
-      period: "Mar 2025 – Nov 2025",
-      location: "Tokyo, Japan",
-      achievements: [
-        "Leading frontend development for an AI-based security knowledge assessment system for NEC.",
-        "Implemented AWS Cognito for authentication and managed deployments using AWS Amplify & Lambda.",
-        "Established Git approval flows and code review processes to ensure high code quality."
-      ]
-    },
-    {
-      id: 3,
-      role: "Full Stack Engineer / Team Lead",
-      company: "Mirai Technologies LLC",
-      period: "May 2024 – Mar 2025",
-      location: "Ulaanbaatar, Mongolia",
-      achievements: [
-        "Led a 4-person team in building a 3D robot simulation environment using NVIDIA Isaac Sim & ROS2.",
-        "Developed a web-based Attendance & Payroll system using Next.js and MongoDB, automating complex calculations.",
-        "Managed project requirements, design, and team task allocation."
-      ]
-    },
-    {
-      id: 4,
-      role: "Web Developer",
-      company: "Dentsu Data Artist Mongol",
-      period: "Apr 2023 – May 2024",
-      location: "Ulaanbaatar, Mongolia",
-      achievements: [
-        "Developed an AI Chatbot for Golf Reservations using React, Django, and OpenAI API, replacing manual call center tasks.",
-        "Built an internal AI Meeting Summary tool with Python/FastAPI and AWS, supporting multi-language translation.",
-        "Handled full-cycle development from infrastructure (Docker/AWS) to frontend and backend implementation."
-      ]
-    }
-  ];
+  const { lang } = useLang();
+  const t = translations[lang].experience;
 
   return (
     <div className="space-y-8">
-      {experiences.map((experience, index) => (
+      {t.items.map((experience, index) => (
         <motion.div
-          key={experience.id}
+          key={index}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 }}

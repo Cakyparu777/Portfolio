@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Code, FileText, Github, Linkedin, Mail, User } from "lucide-react";
-import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
@@ -12,13 +11,15 @@ import { SkillBadge } from "@/components/skill-badge";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AnimatedText } from "@/components/animated-text";
 import { AnimatedSection } from "@/components/animated-section";
-import { ContactForm } from "@/components/contact-form";
 import { ExperienceTimeline } from "@/components/experience-timeline";
+import { LanguageToggle } from "@/components/language-toggle";
+import { useLang } from "@/contexts/language-context";
+import { translations } from "@/lib/translations";
 
 export default function Home() {
-  const { theme } = useTheme();
+  const { lang } = useLang();
+  const t = translations[lang];
   const [isClient, setIsClient] = useState(false);
-  const [showJapanese, setShowJapanese] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
@@ -46,23 +47,24 @@ export default function Home() {
             </Link>
             <nav className="hidden gap-6 md:flex">
               <Link href="#about" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                About
+                {t.nav.about}
               </Link>
               <Link href="#skills" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                Skills
+                {t.nav.skills}
               </Link>
               <Link href="#projects" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                Projects
+                {t.nav.projects}
               </Link>
               <Link href="#experience" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                Experience
+                {t.nav.experience}
               </Link>
               <Link href="#contact" className="flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-                Contact
+                {t.nav.contact}
               </Link>
             </nav>
           </div>
           <div className="flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <Button variant="outline" size="icon" asChild>
               <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
@@ -83,19 +85,19 @@ export default function Home() {
         <section className="relative overflow-hidden py-24 md:py-32">
           <div className="container flex flex-col items-center justify-center text-center">
             <AnimatedText
-              text="Fullstack Engineer"
+              text={t.hero.role}
               className={`text-xl font-medium tracking-tight mb-4`}
               direction="up"
               delay={0.2}
             />
             <AnimatedText
-              text="Building Digital Experiences"
+              text={t.hero.headline}
               className="text-4xl font-bold  sm:text-5xl md:text-6xl lg:text-7xl mb-6"
               direction="up"
               delay={0.3}
             />
             <AnimatedText
-              text="Transforming ideas into elegant, functional solutions"
+              text={t.hero.tagline}
               className={`text-xl font-medium tracking-tight mb-4`}
               direction="up"
               delay={0.4}
@@ -106,11 +108,11 @@ export default function Home() {
             >
               <Button asChild size="lg">
                 <Link href="#projects">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                  {t.hero.viewProjects} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link href="#contact">Contact Me</Link>
+                <Link href="#contact">{t.hero.contactMe}</Link>
               </Button>
             </div>
           </div>
@@ -123,61 +125,31 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto grid max-w-[58rem] grid-cols-1 gap-8 md:grid-cols-2">
               <div className="flex flex-col justify-center space-y-4">
-                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">About</div>
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">{t.about.label}</div>
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Aiming for Excellence as a Versatile Full-Stack Engineer
+                  {t.about.title}
                 </h2>
-                <p className="text-muted-foreground">
-                  I graduated from Tomakomai Kosen (Department of Electrical and Electronic Engineering) and have since worked as a Full-Stack Engineer across multiple companies. My expertise revolves around Python (FastAPI, Django) and JavaScript (React, Next.js), building internal business systems, AI applications, and 3D simulation environments.
-                </p>
-                <p className="text-muted-foreground">
-                  I handle the entire development lifecycle—from requirements definition to design, implementation, and testing. With a strong foundation in AWS cloud infrastructure and Docker-based development environments, I deliver robust, scalable solutions effectively.
-                </p>
-                <div className="flex gap-4">
+                <p className="text-muted-foreground">{t.about.p1}</p>
+                <p className="text-muted-foreground">{t.about.p2}</p>
+                <div className="flex flex-wrap gap-2">
                   <Button variant="outline" asChild>
-                    <Link
-                      href="/Resume_2026.pdf"
-                      download="Resume_2026.pdf"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setShowJapanese(!showJapanese);
-                        setTimeout(() => {
-                          const link = document.createElement('a');
-                          link.href = '/Resume_2026.pdf';
-                          link.download = 'Resume_2026.pdf';
-                          link.click();
-                        }, 0);
-                      }}
-                    >
-                      <User className="mr-2 h-4 w-4" /> {showJapanese ? '履歴書' : 'Resume (Japanese)'}
+                    <Link href="/Resume_2026.pdf" download="Resume_2026.pdf">
+                      <User className="mr-2 h-4 w-4" /> {t.about.resume}
                     </Link>
                   </Button>
                   <Button variant="outline" asChild>
-                    <Link
-                      href="/Work_History_2026.pdf"
-                      download="Work_History_2026.pdf"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setShowJapanese(!showJapanese);
-                        setTimeout(() => {
-                          const link = document.createElement('a');
-                          link.href = '/Work_History_2026.pdf';
-                          link.download = 'Work_History_2026.pdf';
-                          link.click();
-                        }, 0);
-                      }}
-                    >
-                      <User className="mr-2 h-4 w-4" /> {showJapanese ? '職務経歴書' : 'Job History (Japanese)'}
+                    <Link href="/Work_History_2026.pdf" download="Work_History_2026.pdf">
+                      <User className="mr-2 h-4 w-4" /> {t.about.jobHistory}
                     </Link>
                   </Button>
                   <Button variant="outline" asChild>
                     <Link href="/cv.html" target="_blank">
-                      <FileText className="mr-2 h-4 w-4" /> Resume (English)
+                      <FileText className="mr-2 h-4 w-4" /> {t.about.resumeEn}
                     </Link>
                   </Button>
                   <Button variant="outline" asChild>
                     <Link href="tuguldur.gee.2001@gmail.com">
-                      <Mail className="mr-2 h-4 w-4" /> Email Me
+                      <Mail className="mr-2 h-4 w-4" /> {t.about.emailMe}
                     </Link>
                   </Button>
                 </div>
@@ -204,14 +176,12 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto max-w-[58rem] space-y-6 text-center">
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                Skills & Technologies
+                {t.skills.label}
               </div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                My Technical Toolkit
+                {t.skills.title}
               </h2>
-              <p className="text-muted-foreground">
-                I have worked with a variety of technologies across the full stack.
-              </p>
+              <p className="text-muted-foreground">{t.skills.description}</p>
             </div>
             <div className="mx-auto mt-12 max-w-[64rem]">
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -238,54 +208,52 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto max-w-[58rem] space-y-6 text-center">
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                Featured Projects
+                {t.projects.label}
               </div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Recent Work
+                {t.projects.title}
               </h2>
-              <p className="text-muted-foreground">
-                Here are some of the projects I've worked on recently
-              </p>
+              <p className="text-muted-foreground">{t.projects.description}</p>
             </div>
             <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
               <ProjectCard
-                title="AI Security Test System"
-                description="AI-driven security knowledge assessment system with personalized learning paths."
+                title={t.projects.items[0].title}
+                description={t.projects.items[0].description}
                 tags={["React", "TypeScript", "AWS Cognito", "AWS Lambda", "Amplify"]}
                 image="/security.png"
                 link="#"
               />
               <ProjectCard
-                title="Customer Persona Gen AI"
-                description="Marketing support system generating customer personas from data using Generative AI."
+                title={t.projects.items[1].title}
+                description={t.projects.items[1].description}
                 tags={["Python", "FastAPI", "React", "Next.js", "PostgreSQL"]}
                 image="/persona.png"
                 link="#"
               />
               <ProjectCard
-                title="Robot Simulation Env"
-                description="3D simulation environment for industrial robots using NVIDIA Isaac Sim & ROS2."
+                title={t.projects.items[2].title}
+                description={t.projects.items[2].description}
                 tags={["Python", "ROS2", "Isaac Sim", "MongoDB", "Socket.io"]}
                 image="/simulation.jpg"
                 link="#"
               />
               <ProjectCard
-                title="Golf Reservation Chatbot"
-                description="AI chatbot for automated golf reservations replacing call center operations."
+                title={t.projects.items[3].title}
+                description={t.projects.items[3].description}
                 tags={["React", "Django", "MongoDB", "OpenAI API", "AWS"]}
                 image="/golf.png"
                 link="#"
               />
               <ProjectCard
-                title="Payroll & Attendance"
-                description="Unified web system for managing employee attendance and payroll calculations."
+                title={t.projects.items[4].title}
+                description={t.projects.items[4].description}
                 tags={["Next.js", "React", "MongoDB", "Docker", "FastAPI"]}
                 image="/salary.png"
                 link="#"
               />
               <ProjectCard
-                title="AI Meeting Summary"
-                description="Automated meeting summarization and translation tool for internal efficiency."
+                title={t.projects.items[5].title}
+                description={t.projects.items[5].description}
                 tags={["Python", "FastAPI", "SQL", "Docker", "AWS"]}
                 image="/meeting_summary.png"
                 link="#"
@@ -295,7 +263,7 @@ export default function Home() {
               <Button variant="outline" asChild>
                 <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
                   <Github className="mr-2 h-4 w-4" />
-                  View More on GitHub
+                  {t.projects.viewMore}
                 </Link>
               </Button>
             </div>
@@ -306,14 +274,12 @@ export default function Home() {
           <div className="container">
             <div className="mx-auto max-w-[58rem] space-y-6 text-center">
               <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                Career Journey
+                {t.experience.label}
               </div>
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                Work Experience
+                {t.experience.title}
               </h2>
-              <p className="text-muted-foreground">
-                An overview of my professional background and career milestones.
-              </p>
+              <p className="text-muted-foreground">{t.experience.description}</p>
             </div>
             <div className="mx-auto mt-12 max-w-3xl">
               <ExperienceTimeline />
@@ -326,14 +292,12 @@ export default function Home() {
             <div className="mx-auto grid max-w-[58rem] gap-8 md:grid-cols-2">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                  Get in Touch
+                  {t.contact.label}
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Let's Work Together
+                  {t.contact.title}
                 </h2>
-                <p className="text-muted-foreground">
-                  I welcome inquiries regarding potential job opportunities, collaborations, or projects where my skills and experience may be a strong fit.
-                </p>
+                <p className="text-muted-foreground">{t.contact.description}</p>
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <Mail className="mr-2 h-5 w-5 text-muted-foreground" />
@@ -361,7 +325,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <Code className="h-5 w-5" />
             <p className="text-sm text-muted-foreground">
-              © 2025 CodyPortfolio. All rights reserved.
+              {t.footer.rights}
             </p>
           </div>
           <div className="flex gap-4 !static !w-auto !max-w-none !flex-nowrap">
@@ -371,7 +335,7 @@ export default function Home() {
               style={{ pointerEvents: "auto" }}
               tabIndex={-1}
             >
-              Privacy Policy
+              {t.footer.privacy}
             </Link>
             <Link
               href="#"
@@ -379,7 +343,7 @@ export default function Home() {
               style={{ pointerEvents: "auto" }}
               tabIndex={-1}
             >
-              Terms of Service
+              {t.footer.terms}
             </Link>
           </div>
         </div>
